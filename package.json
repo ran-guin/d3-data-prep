@@ -1,21 +1,21 @@
 {
-  "name": "test",
+  "name": "d3-data-prep",
   "version": "1.0.0",
-  "description": "",
+  "description": "tool for pre-formatting data to standard array of arrays/hashes in preparation for use with d3 modules",
   "author": "Ran Guin <ran.guin@gmail.com>",
   "keywords": [
-    "npm",
-    "package",
-    "template"
+    "data",
+    "parsing",
+    "formatting"
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/ran-guin/npm-package-template.git"
+    "url": "https://gitlab.com/ran-guin/d3-data-prep.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/ran-guin/npm-package-template/issues"
+    "url": "https://gitlab.com/ran-guin/d3-data-prep/issues"
   },
-  "homepage": "https://gitlab.com/ran-guin/npm-package-template#readme",
+  "homepage": "https://gitlab.com/ran-guin/d3-data-prep#readme",
 
   "main": "./dist/index.js",
   "scripts": {
