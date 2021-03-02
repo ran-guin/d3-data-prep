@@ -547,19 +547,6 @@ function changeHeader (data, index) {
   console.log('** after changeHeader ** updated after header change: ' + JSON.stringify(Object.keys(data)))
 }
 
-  // ignoreTop: function () {
-  //   for (var i = 0; i < this.skipTop; i++) {
-  //     this.clearRecord(1)
-  //   }
-  //   console.log('skipped ' + this.skipTop + 'lines at top')
-  // },
-  // ignoreBottom: function () {
-  //   for (var j = 0; j < this.skipBottom; j++) {
-  //     this.clearRecord(this.dataAsArrays.length)
-  //   }
-  //   console.log('skipped ' + this.skipBottom + 'lines at bottom')
-  // }
-
 function parseColumnData (data) {
   var columns = data.summary.headers
   var enumLimit = 20 // upper limit on likely enum values
@@ -625,9 +612,21 @@ function parseColumnData (data) {
 
     var enums = ((unique_options.length < values.length) && (unique_options.length < enumLimit)) ? unique_options.join(', ') : false
 
+    var dbType = '?'
+    if (time) { dbType = 'Datetime' }
+    else if (date) { dbType = 'Date' }
+    else if (decimal) { dbType = 'Decimal'}
+    else if (numeric) { dbType = 'Int'}
+    else if (string) { dbType = 'Varchar'}
+
+    var name = data.summary.labels && data.summary.labels[index] ? 
+      data.summary.labels[index].text : 
+      null
+    
     var Column = {
-      name: data.summary.labels && data.summary.labels[index] ? data.summary.labels[index].text : null,
-      type: type,
+      name: name,
+      raw_type: type,
+      db_type: dbType,
       enum: enums,
       count: values.length,
       // values: values,
@@ -635,20 +634,9 @@ function parseColumnData (data) {
       min_length: minLength,
       max_length: maxLength,
 
-      numeric: numeric,
-      decimal: decimal,
-      date: date,
-      time: time,
-      nullOk: nullOk,
-      string: string,
-
-      // unique_options: unique_options,
-      // non_zero_options: non_zero_options,
-      // non_zero_unique_options: non_zero_unique_options,
-
+      empty_count: values.length - non_zero_options.length,
       unique_count: unique_options.length,
       non_zero_count: non_zero_options.length,
-      non_zero_unique_count: non_zero_unique_options.length,
     }
 
     if ( (non_zero_unique_options.length <= enumLimit) && (non_zero_unique_options.length < values.length)) {

@@ -1,8 +1,7 @@
 {
   "name": "d3-data-prep",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "tool for pre-formatting data to standard array of arrays/hashes in preparation for use with d3 modules",
-  "author": "Ran Guin <ran.guin@gmail.com>",
   "author": "Ran Guin <ran.guin@gmail.com>",
   "keywords": [
     "d3",
@@ -19,7 +18,6 @@
     "url": "https://gitlab.com/ran-guin/d3-data-prep/issues"
   },
   "homepage": "https://gitlab.com/ran-guin/d3-data-prep#readme",
-  
   "main": "./dist/index.js",
   "type": "module",
   "scripts": {
