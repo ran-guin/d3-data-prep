@@ -1,6 +1,6 @@
 {
   "name": "d3-data-prep",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "tool for pre-formatting data to standard array of arrays/hashes in preparation for use with d3 modules",
   "author": "Ran Guin <ran.guin@gmail.com>",
   "keywords": [

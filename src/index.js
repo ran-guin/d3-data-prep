@@ -4,7 +4,7 @@ function loadRaw (data, format) {
   this.uploadError = ''
   this.uploadMessage = ''
 
-  var parsed
+  var parsed = data
   if (data.constructor === String) {
     if (format === 'JSON') {
       parsed = JSON.parse(data)
